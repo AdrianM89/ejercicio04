@@ -32,39 +32,40 @@ public class MyUI extends UI {
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        name.setCaption("Nombre:");
+        
+        final TextField apellido = new TextField();
+        apellido.setCaption("Apellido:");
+        
+        final TextField edad = new TextField();
+        edad.setCaption("Edad:");
+        
+        final TextField direccion = new TextField();
+        direccion.setCaption("Dirección:");
 
         Button button = new Button("Click Me");
         button.addClickListener( e -> {
-        	name.setValue("Juanl");
         	
-            /*layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));*/
+        	
+        layout.addComponent(new Label("Hola " + name.getValue() + " " + apellido.getValue() + ", con edad " + edad.getValue()));
         });
-        
-        Button miBoton = new Button("Este botón no hace nada de nada");
-        miBoton.addClickListener(
-			
-			event ->{
-			name.setValue("Adrián");
-			}
-			    /*layout.addComponent(new Label("Thanks " + name.getValue() 
-                + ", it works!"))*/
-				
-			
-		);
-  
-     /**
-     * Updates the sample caption
-     */
 
  
  
-        name.addValueChangeListener(event -> Notification.show("Vaor cambiado:",
+        name.addValueChangeListener(event -> Notification.show("Valor cambiado:",
+                String.valueOf(event.getValue()),
+                Type.TRAY_NOTIFICATION));
+        apellido.addValueChangeListener(event -> Notification.show("Valor cambiado:",
+                String.valueOf(event.getValue()),
+                Type.TRAY_NOTIFICATION));
+        edad.addValueChangeListener(event -> Notification.show("Valor cambiado:",
+                String.valueOf(event.getValue()),
+                Type.TRAY_NOTIFICATION));
+        direccion.addValueChangeListener(event -> Notification.show("Valor cambiado:",
                 String.valueOf(event.getValue()),
                 Type.TRAY_NOTIFICATION));
         
-        layout.addComponents(name, button, miBoton);
+        layout.addComponents(name, apellido, edad, direccion, button);
         
         setContent(layout);
     }
