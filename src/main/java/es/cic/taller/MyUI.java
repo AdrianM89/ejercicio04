@@ -43,7 +43,7 @@ public class MyUI extends UI {
         final TextField direccion = new TextField();
         direccion.setCaption("Dirección:");
 
-        Button button = new Button("Click Me");
+        Button button = new Button("Introducir");
         button.addClickListener( e -> {
         	
         	
